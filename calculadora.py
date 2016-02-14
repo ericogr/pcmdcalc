@@ -1,4 +1,5 @@
-import math
+from math import sqrt as sq
+from math import log2 as l2
 
 print("""
 	Calculadora com pilha
@@ -10,6 +11,9 @@ leitura = ''
 valor = 0
 pilha = []
 
+#############
+# operações #
+#############
 def adicao(a, b):
 	return a + b
 
@@ -26,8 +30,14 @@ def power(a, b):
 	return a ** b
 
 def square(a):
-	return math.sqrt(a)
+	return sq(a)
 
+def log2(a):
+	return l2(a)
+
+############
+# diversos #
+############
 def imprimepilha(pilha):
 	for i, p in enumerate(pilha):
 		print('{0}: {1}'.format(i, p))
@@ -63,6 +73,10 @@ operacoes = {
 	'sq': {
 		'operadores': 1,
 		'funcao': square
+	},
+	'l2': {
+		'operadores': 1,
+		'funcao': log2
 	}
 }
 
