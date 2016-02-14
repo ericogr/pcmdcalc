@@ -50,6 +50,10 @@ def main():
 		comando = comando.strip().lower()
 		return comando == 'exit' or comando == 'quit' or comando == 'q'
 
+	def iscomandolimpar(comando):
+		comando = comando.strip().lower()
+		return comando == 'cls' or comando == 'clear'
+
 	def isnumber(number):
 		numero = number.replace('.', '', 1)
 
@@ -113,10 +117,13 @@ def main():
 			else:
 				print('pilha sem elementos para operacao')
 		else:
-			if iscomandosair(leitura):
+			if not leitura:
+				continue
+			elif iscomandosair(leitura):
 				break
-
-			if isnumber(leitura):
+			elif iscomandolimpar(leitura):
+				pilha.clear()
+			elif isnumber(leitura):
 				valor = float(leitura)
 				pilha.append(valor)
 			else:
