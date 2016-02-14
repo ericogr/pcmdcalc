@@ -1,3 +1,5 @@
+import math
+
 print("""
 	Calculadora com pilha
 		Digite o valor e ENTER para adicionar na pilha
@@ -23,6 +25,9 @@ def divisao(a, b):
 def power(a, b):
 	return a ** b
 
+def square(a):
+	return math.sqrt(a)
+
 def imprimepilha(pilha):
 	for i, p in enumerate(pilha):
 		print('{0}: {1}'.format(i, p))
@@ -35,11 +40,30 @@ def isnumber(number):
 	return number.replace('.', '', 1).isdigit()
 
 operacoes = {
-	'+': adicao,
-	'-': subtracao,
-	'*': multiplicacao,
-	'/': divisao,
-	'p': power
+	'+': {
+		'operadores': 2,
+		'funcao': adicao
+	},
+	'-': {
+		'operadores': 2,
+		'funcao': subtracao
+	},
+	'*': {
+		'operadores': 2,
+		'funcao': multiplicacao
+	},
+	'/': {
+		'operadores': 2,
+		'funcao': divisao
+	},
+	'pw': {
+		'operadores': 2,
+		'funcao': power
+	},
+	'sq': {
+		'operadores': 1,
+		'funcao': square
+	}
 }
 
 while True:
@@ -48,8 +72,13 @@ while True:
 	operacao = operacoes.get(leitura)
 
 	if operacao:
-		if len(pilha) > 1:
-			valor = operacao(pilha.pop(), pilha.pop())
+		operadores = operacao.get('operadores')
+
+		if len(pilha) >= operadores:
+			funcao = operacao.get('funcao')
+
+			valor = funcao(*pilha[-operadores:])
+			pilha = pilha[0:len(pilha) - operadores]
 			pilha.append(valor)
 		else:
 			print('pilha sem elementos para operacao')
