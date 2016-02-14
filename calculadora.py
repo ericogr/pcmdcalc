@@ -20,6 +20,9 @@ def multiplicacao(a, b):
 def divisao(a, b):
 	return a / b
 
+def power(a, b):
+	return a ** b
+
 def imprimepilha(pilha):
 	for i, p in enumerate(pilha):
 		print('{0}: {1}'.format(i, p))
@@ -35,7 +38,8 @@ operacoes = {
 	'+': adicao,
 	'-': subtracao,
 	'*': multiplicacao,
-	'/': divisao
+	'/': divisao,
+	'p': power
 }
 
 while True:
