@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import operacoes as op
 
 from math import sqrt as sq
 from math import log2 as l2
@@ -14,30 +17,7 @@ def main():
 	leitura = ''
 	valor = 0
 	pilha = []
-
-	#############
-	# operações #
-	#############
-	def adicao(a, b):
-		return a + b
-
-	def subtracao(a, b):
-		return a - b
-
-	def multiplicacao(a, b):
-		return a * b
-
-	def divisao(a, b):
-		return a / b
-
-	def power(a, b):
-		return a ** b
-
-	def square(a):
-		return sq(a)
-
-	def log2(a):
-		return l2(a)
+	operacoes = op.Operacoes()
 
 	############
 	# diversos #
@@ -62,37 +42,37 @@ def main():
 
 		return numero.isdigit()
 
-	#############
-	# operacoes #
-	#############
-	operacoes = {
+	############################
+	# meta dados das operacoes #
+	############################
+	meta_operacoes = {
 		'+': {
 			'operadores': 2,
-			'funcao': adicao
+			'funcao': operacoes.adicao
 		},
 		'-': {
 			'operadores': 2,
-			'funcao': subtracao
+			'funcao': operacoes.subtracao
 		},
 		'*': {
 			'operadores': 2,
-			'funcao': multiplicacao
+			'funcao': operacoes.multiplicacao
 		},
 		'/': {
 			'operadores': 2,
-			'funcao': divisao
+			'funcao': operacoes.divisao
 		},
 		'pw': {
 			'operadores': 2,
-			'funcao': power
+			'funcao': operacoes.power
 		},
 		'sq': {
 			'operadores': 1,
-			'funcao': square
+			'funcao': operacoes.square
 		},
 		'l2': {
 			'operadores': 1,
-			'funcao': log2
+			'funcao': operacoes.log2
 		}
 	}
 
@@ -103,7 +83,7 @@ def main():
 	while True:
 		leitura = input('>>>')
 
-		operacao = operacoes.get(leitura)
+		operacao = meta_operacoes.get(leitura)
 
 		if operacao:
 			operadores = operacao.get('operadores')
