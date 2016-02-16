@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import operacoes as op
+from operacoes import *
 
 from math import sqrt as sq
 from math import log2 as l2
@@ -17,7 +17,7 @@ def main():
 	leitura = ''
 	valor = 0
 	pilha = []
-	operacoes = op.Operacoes()
+	operacoes = Operacoes()
 
 	############
 	# diversos #
