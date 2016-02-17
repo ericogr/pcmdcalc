@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-from operacoes import *
-
+import sys
 from math import sqrt as sq
 from math import log2 as l2
+from operacoes import *
 
 def main():
 	print("""
