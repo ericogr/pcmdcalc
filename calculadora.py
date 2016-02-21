@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from math import sqrt as sq
-from math import log2 as l2
 from operacoes import *
 
 def main():

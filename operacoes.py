@@ -1,3 +1,6 @@
+from math import sqrt as sq
+from math import log2 as l2
+
 class Operacoes:
 	def adicao(self, a, b):
 		return a + b
